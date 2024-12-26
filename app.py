@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from PIL import Image
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 st.set_page_config(
@@ -39,8 +40,8 @@ st.sidebar.markdown("""
 # Sidebar navigation options with selectbox
 page = st.sidebar.selectbox(
     "Pilih Halaman", 
-    ("Latar Belakang", "Tujuan Proyek", "Prediksi Pembatalan", "Evaluasi Model", "Prediksi dengan Dataset"),
-    index=0  # Default to "Latar Belakang"
+    ("Latar Belakang", "Tujuan Proyek", "Prediksi Pembatalan", "Evaluasi Model", "Prediksi dengan Dataset", "Pembuat"),
+    index=0  # Default to "Latar Belakang" dwdwdwd
 )
 if page == "Latar Belakang":
     # Judul Halaman
@@ -266,3 +267,45 @@ elif page == "Prediksi dengan Dataset":
     except Exception as e:
         st.error(f"Terjadi kesalahan saat memproses file: {e}")
 
+elif page == "Pembuat":
+    st.title("Prediksi Pembatalan Pemesanan dengan Dataset")
+
+    st.header('Pembuat', divider='rainbow')
+    st.subheader('Di Belakang Layar!')
+    st.subheader("")
+
+    # Deskripsi dan Logo
+    deskripsi, poto = st.columns([2, 2])
+    with deskripsi:
+        st.markdown('''team consists of three students from the Data Science Undergraduate Study Program class 2023E, Faculty of Mathematics and Natural Sciences, Surabaya State University.\n\nFormed with the aim of fulfilling the final project assignment for third semester in the Artificial Intellegence course under the guidance of the lecturer, namely Mrs. Dr. Elly Matul Imah, M.Kom.''')
+
+    with poto:
+        # Pastikan file logo.png ada di folder yang sama dengan script Python
+        st.image(Image.open('logoai.png'), width=250)
+        st.subheader("Our Team")
+
+    # Team Member Section
+    col1, col2, col3 = st.columns([2, 2, 2])  # Membuat kolom
+    with col1:
+        st.image(Image.open('mamad.png'), width=150)
+        st.markdown('''
+         **Ahmad Marannuang Tajibu**  
+        23031554040  
+        ahmadmarannuang.23040@mhs.unesa.ac.id
+        ''')
+
+    with col2:
+        st.image(Image.open('edo.png'), width=150)
+        st.markdown('''
+        **Mochammad Edo Pramudya**  
+        23031554070    
+        mochammad.23070@mhs.unesa.ac.id
+        ''')
+
+    with col3:
+        st.image(Image.open('aqsa.png'), width=150)
+        st.markdown('''
+        **Muhammad Aqsa Firdaus**  
+        23031554087  
+         muhammadaqsa.23087@mhs.unesa.ac.id
+        ''')
