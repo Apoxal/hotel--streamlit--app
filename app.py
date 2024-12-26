@@ -303,7 +303,7 @@ elif page == "Pembuat":
         ''')
 
     with col3:
-        st.image(Image.open('aqsa.png'), width=150)
+        st.image(Image.open('Aqsa.png'), width=150)
         st.markdown('''
         **Muhammad Aqsa Firdaus**  
         23031554087  
